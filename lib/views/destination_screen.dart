@@ -147,6 +147,10 @@ class _DestinationScreenState extends State<DestinationScreen> {
           ),
           Expanded(
             child: ListView.builder(
+              padding: EdgeInsets.only(
+                top: 10.0,
+                bottom: 10.0,
+              ),
               itemCount: widget.place.activities.length,
               itemBuilder: (BuildContext context, int index) {
                 Activity activity = widget.place.activities[index];
@@ -252,6 +256,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                     right: 5.0,
                                   ),
                                   child: Container(
+                                    padding: EdgeInsets.all(1.0),
                                     width: 80.0,
                                     decoration: BoxDecoration(
                                       color: Theme.of(context).accentColor,
@@ -273,6 +278,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   width: 10.0,
                                 ),
                                 Container(
+                                  padding: EdgeInsets.all(1.0),
                                   width: 80.0,
                                   decoration: BoxDecoration(
                                     color: Theme.of(context).accentColor,
@@ -292,6 +298,21 @@ class _DestinationScreenState extends State<DestinationScreen> {
                               ],
                             ),
                           ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 20.0,
+                      bottom: 20.0,
+                      left: 20.0,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image(
+                          width: 130.0,
+                          image: AssetImage(
+                            activity.imageUrl,
+                          ),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
