@@ -81,11 +81,11 @@ class HotelCarousel extends StatelessWidget {
                                   children: <Widget>[
                                     Icon(
                                       Feather.navigation_2,
-                                      size: 20.0,
+                                      size: 15.0,
                                       color: theme.descriptionColor,
                                     ),
                                     SizedBox(
-                                      width: 5.0,
+                                      width: 2.0,
                                     ),
                                     Text(
                                       hotel.address,

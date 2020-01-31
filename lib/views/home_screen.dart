@@ -17,9 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
   List<IconData> _icons = [
     Ionicons.ios_airplane,
     Ionicons.ios_bed,
-    Icons.local_cafe,
+    Ionicons.ios_wine,
     Icons.local_pizza,
-    Icons.local_movies,
+    Feather.film,
   ];
 
   Widget _buildIcon(int index) {
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: Icon(
           _icons[index],
-          size: 27.0,
+          size: 25.0,
           color: _selectedIndex == index
               ? Theme.of(context).primaryColor
               : theme.foregroundColor,
@@ -131,11 +131,15 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text('Nearby', style: GoogleFonts.varelaRound()),
           ),
           BottomNavigationBarItem(
-            icon: CircleAvatar(
-              radius: 25.0,
-              backgroundImage: NetworkImage(
-                  'https://lh5.googleusercontent.com/-J37h4JheLnw/AAAAAAAAAAI/AAAAAAAAAQY/omswTpA7HQU/photo.jpg'),
+             icon: Icon(
+              Feather.users,
+              size: 25.0,
             ),
+            // icon: CircleAvatar(
+            //   radius: 25.0,
+            //   backgroundImage: NetworkImage(
+            //       'https://lh5.googleusercontent.com/-J37h4JheLnw/AAAAAAAAAAI/AAAAAAAAAQY/omswTpA7HQU/photo.jpg'),
+            // ),
             title: Text(
               'Profile',
               style: GoogleFonts.varelaRound(),

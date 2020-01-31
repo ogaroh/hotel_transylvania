@@ -112,13 +112,16 @@ class PlacesCarousel extends StatelessWidget {
                           ),
                           child: Stack(
                             children: <Widget>[
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(20.0),
-                                child: Image(
-                                  height: 180.0,
-                                  width: 200.0,
-                                  image: AssetImage(place.imageUrl),
-                                  fit: BoxFit.cover,
+                              Hero(
+                                tag: place.imageUrl,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  child: Image(
+                                    height: 180.0,
+                                    width: 200.0,
+                                    image: AssetImage(place.imageUrl),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                               Positioned(

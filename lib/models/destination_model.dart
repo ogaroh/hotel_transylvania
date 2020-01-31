@@ -23,15 +23,15 @@ List<Activity> activities = [
     type: 'Sightseeing Tour',
     startTimes: ['9:00 am', '11:00 am'],
     rating: 5,
-    price: 30,
+    price: 3000,
   ),
   Activity(
     imageUrl: 'assets/images/gondola.jpg',
     name: 'Walking Tour and Gonadola Ride',
-    type: 'Sightseeing Tour',
+    type: 'City Scaping',
     startTimes: ['11:00 pm', '1:00 pm'],
     rating: 4,
-    price: 210,
+    price: 21000,
   ),
   Activity(
     imageUrl: 'assets/images/murano.jpg',
@@ -39,7 +39,7 @@ List<Activity> activities = [
     type: 'Sightseeing Tour',
     startTimes: ['12:30 pm', '2:00 pm'],
     rating: 3,
-    price: 125,
+    price: 12500,
   ),
 ];
 

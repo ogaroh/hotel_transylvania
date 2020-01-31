@@ -14,3 +14,4 @@ Color foregroundColor = Colors.grey[700];
 Color descriptionColor = Colors.grey;
 Color shadow = Colors.black26;
 Color heading = Colors.teal[900];
+Color ratings = Colors.amber[700];
