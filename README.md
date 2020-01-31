@@ -7,3 +7,5 @@ A places recommendation app in Flutter.
 ## API
 
 ## DATABASE
+
+## ADDITIONAL
