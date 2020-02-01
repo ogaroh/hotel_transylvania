@@ -1,3 +1,4 @@
+import 'package:erik/views/auth/default.dart';
 import 'package:erik/views/widgets/hotel_carousel.dart';
 import 'package:erik/views/widgets/places_carousel.dart';
 import 'package:flutter/material.dart';
@@ -107,6 +108,14 @@ class _HomeScreenState extends State<HomeScreen> {
           setState(() {
             _currentTab = value;
           });
+          if (_currentTab == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DefaultAuth(),
+              ),
+            );
+          }
         },
         items: [
           BottomNavigationBarItem(
@@ -131,15 +140,10 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text('Nearby', style: GoogleFonts.varelaRound()),
           ),
           BottomNavigationBarItem(
-             icon: Icon(
+            icon: Icon(
               Feather.users,
               size: 25.0,
             ),
-            // icon: CircleAvatar(
-            //   radius: 25.0,
-            //   backgroundImage: NetworkImage(
-            //       'https://lh5.googleusercontent.com/-J37h4JheLnw/AAAAAAAAAAI/AAAAAAAAAQY/omswTpA7HQU/photo.jpg'),
-            // ),
             title: Text(
               'Profile',
               style: GoogleFonts.varelaRound(),
