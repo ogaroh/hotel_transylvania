@@ -1,4 +1,5 @@
 import 'package:erik/views/auth/default.dart';
+import 'package:erik/views/widgets/bottom_navigation.dart';
 import 'package:erik/views/widgets/hotel_carousel.dart';
 import 'package:erik/views/widgets/places_carousel.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  int _currentTab = 0;
 
   List<IconData> _icons = [
     Ionicons.ios_airplane,
@@ -98,59 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: theme.cardColor,
-        unselectedItemColor: theme.foregroundColor,
-        selectedItemColor: theme.heading,
-        type: BottomNavigationBarType.shifting,
-        currentIndex: _currentTab,
-        onTap: (int value) {
-          setState(() {
-            _currentTab = value;
-          });
-          if (_currentTab == 3) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => DefaultAuth(),
-              ),
-            );
-          }
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Feather.home,
-              size: 25.0,
-            ),
-            title: Text('Home', style: GoogleFonts.varelaRound()),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Feather.search,
-              size: 25.0,
-            ),
-            title: Text('Search', style: GoogleFonts.varelaRound()),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Feather.navigation,
-              size: 25.0,
-            ),
-            title: Text('Nearby', style: GoogleFonts.varelaRound()),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Feather.users,
-              size: 25.0,
-            ),
-            title: Text(
-              'Profile',
-              style: GoogleFonts.varelaRound(),
-            ),
-          ),
-        ],
-      ),
+      bottomNavigationBar: BottomNav(),
     );
   }
 }
