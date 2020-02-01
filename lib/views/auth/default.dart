@@ -1,5 +1,4 @@
-import 'package:erik/views/auth/login.dart';
-import 'package:erik/views/auth/register.dart';
+import 'package:erik/views/widgets/bottom/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 class DefaultAuth extends StatefulWidget {
@@ -13,7 +12,22 @@ class _DefaultAuthState extends State<DefaultAuth> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _isLoggingIn ? LoginPage() : RegisterPage(),
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.symmetric(
+            vertical: 10.0,
+            horizontal: 10.0,
+          ),
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            children: <Widget>[
+              Text('Default Page '),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomNav(),
     );
   }
 }

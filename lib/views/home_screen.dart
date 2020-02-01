@@ -1,11 +1,9 @@
-import 'package:erik/views/auth/default.dart';
-import 'package:erik/views/widgets/bottom_navigation.dart';
+import 'package:erik/views/widgets/bottom/bottom_navigation.dart';
 import 'package:erik/views/widgets/hotel_carousel.dart';
 import 'package:erik/views/widgets/places_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:erik/theme/colors.dart' as theme;
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

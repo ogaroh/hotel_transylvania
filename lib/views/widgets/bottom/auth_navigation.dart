@@ -1,15 +1,18 @@
-import 'package:erik/views/auth/default.dart';
+import 'package:erik/views/auth/login.dart';
+import 'package:erik/views/auth/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:erik/theme/colors.dart' as theme;
 
-class BottomNav extends StatefulWidget {
+import '../../home_screen.dart';
+
+class AuthNav extends StatefulWidget {
   @override
-  _BottomNavState createState() => _BottomNavState();
+  _AuthNavState createState() => _AuthNavState();
 }
 
-class _BottomNavState extends State<BottomNav> {
+class _AuthNavState extends State<AuthNav> {
   int _currentTab = 0;
 
   @override
@@ -23,45 +26,38 @@ class _BottomNavState extends State<BottomNav> {
       onTap: (int value) {
         setState(() {
           _currentTab = value;
+          if (value == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoginPage(),
+              ),
+            );
+          } else {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => RegisterPage(),
+              ),
+            );
+          }
         });
-        if (_currentTab == 3) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => DefaultAuth(),
-            ),
-          );
-        }
       },
       items: [
         BottomNavigationBarItem(
           icon: Icon(
-            Feather.home,
+            Feather.user_check,
             size: 25.0,
           ),
-          title: Text('Home', style: GoogleFonts.varelaRound()),
+          title: Text('Sign In', style: GoogleFonts.varelaRound()),
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Feather.search,
-            size: 25.0,
-          ),
-          title: Text('Search', style: GoogleFonts.varelaRound()),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Feather.navigation,
-            size: 25.0,
-          ),
-          title: Text('Nearby', style: GoogleFonts.varelaRound()),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Feather.users,
+            Feather.user_plus,
             size: 25.0,
           ),
           title: Text(
-            'Profile',
+            'Sign Up',
             style: GoogleFonts.varelaRound(),
           ),
         ),
