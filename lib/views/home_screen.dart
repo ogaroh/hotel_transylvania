@@ -12,8 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-
-  List<IconData> _icons = [
+  final List<IconData> _icons = [
     Ionicons.ios_airplane,
     Ionicons.ios_bed,
     Ionicons.ios_wine,

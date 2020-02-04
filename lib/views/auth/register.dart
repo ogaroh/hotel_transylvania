@@ -1,4 +1,3 @@
-import 'package:erik/views/widgets/bottom/auth_navigation.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -20,7 +19,6 @@ class RegisterPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: AuthNav(),
     );
   }
 }

@@ -1,5 +1,9 @@
-import 'package:erik/views/widgets/bottom/bottom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:erik/theme/colors.dart' as theme;
+import './login.dart';
+import './register.dart';
 
 class DefaultAuth extends StatefulWidget {
   @override
@@ -7,27 +11,48 @@ class DefaultAuth extends StatefulWidget {
 }
 
 class _DefaultAuthState extends State<DefaultAuth> {
-   bool _isLoggingIn = true;
+  int _currentTab = 0;
+  final List<Widget> _pages = [LoginPage(), RegisterPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            vertical: 10.0,
-            horizontal: 10.0,
+      body: _pages[_currentTab],
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: theme.cardColor,
+        unselectedItemColor: theme.foregroundColor,
+        selectedItemColor: theme.heading,
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _currentTab,
+        onTap: (int value) {
+          setState(() {
+            _currentTab = value;
+          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => _pages[_currentTab]),
+          );
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Feather.user_check,
+              size: 25.0,
+            ),
+            title: Text('Sign In', style: GoogleFonts.varelaRound()),
           ),
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: <Widget>[
-              Text('Default Page '),
-            ],
+          BottomNavigationBarItem(
+            icon: Icon(
+              Feather.user_plus,
+              size: 25.0,
+            ),
+            title: Text(
+              'Sign Up',
+              style: GoogleFonts.varelaRound(),
+            ),
           ),
-        ),
+        ],
       ),
-      bottomNavigationBar: BottomNav(),
     );
   }
 }

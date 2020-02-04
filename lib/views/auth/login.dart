@@ -1,11 +1,10 @@
-import 'package:erik/views/widgets/bottom/auth_navigation.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return 
+      SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(
             vertical: 10.0,
@@ -19,8 +18,6 @@ class LoginPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: AuthNav(),
     );
   }
 }
