@@ -31,10 +31,6 @@ class _BottomNavState extends State<BottomNav> {
         setState(() {
           _currentTab = value;
         });
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => _pages[_currentTab]),
-        );
       },
       items: [
         BottomNavigationBarItem(
