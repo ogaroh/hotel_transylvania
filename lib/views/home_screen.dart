@@ -51,6 +51,29 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Feather.calendar),
+            onPressed: () => {},
+          ),
+          SizedBox(
+            width: 5.0,
+          ),
+          IconButton(
+            icon: Icon(Feather.settings),
+            onPressed: () => {},
+          ),
+        ],
+        title: Text(
+          'Traveller\'s corner',
+          style: TextStyle(
+            fontSize: 23.0,
+          ),
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
+        elevation: 3.0,
+      ),
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(
