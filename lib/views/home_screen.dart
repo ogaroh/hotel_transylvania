@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         title: Text(
-          'Traveller\'s corner',
+          'Traveller\'s Corner',
           style: TextStyle(
             fontSize: 23.0,
           ),

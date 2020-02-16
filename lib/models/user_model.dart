@@ -4,4 +4,6 @@ class User {
   String userName;
   String password;
   String imageURL;
+
+  User({this.uid, this.email, this.userName, this.imageURL});
 }
