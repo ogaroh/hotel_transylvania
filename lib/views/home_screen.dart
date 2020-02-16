@@ -1,4 +1,4 @@
-import 'package:erik/views/auth/login.dart';
+import 'package:erik/views/settings.dart';
 import 'package:erik/views/widgets/bottom/bottom_navigation.dart';
 import 'package:erik/views/widgets/hotel_carousel.dart';
 import 'package:erik/views/widgets/places_carousel.dart';
@@ -55,24 +55,26 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
+            tooltip: 'Scheduled',
             icon: Icon(Feather.calendar),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => LoginPage(),
-              ),
-            ),
+            onPressed: () => {}
           ),
           SizedBox(
             width: 5.0,
           ),
           IconButton(
+            tooltip: 'Settings',
             icon: Icon(Feather.settings),
-            onPressed: () => {},
+            onPressed: () =>  Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => SettingsPage(),
+              ),
+            ),
           ),
         ],
         title: Text(
-          'Traveller\'s Corner',
+          'FireFly',
           style: TextStyle(
             fontSize: 23.0,
           ),
