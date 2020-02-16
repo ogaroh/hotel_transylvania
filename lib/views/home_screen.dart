@@ -56,14 +56,12 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Feather.calendar),
-            onPressed: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => LoginPage(),
-                ),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => LoginPage(),
               ),
-            },
+            ),
           ),
           SizedBox(
             width: 5.0,

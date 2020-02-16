@@ -1,6 +1,3 @@
-import 'package:erik/views/auth/default.dart';
-import 'package:erik/views/home_screen.dart';
-import 'package:erik/views/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,11 +10,11 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   int _currentTab = 0;
-  final List<Widget> _pages = [
-    HomeScreen(),
-    SearchScreen(),
-    DefaultAuth(),
-  ];
+  // final List<Widget> _pages = [
+  //   HomeScreen(),
+  //   SearchScreen(),
+  //   DefaultAuth(),
+  // ];
 
   @override
   Widget build(BuildContext context) {

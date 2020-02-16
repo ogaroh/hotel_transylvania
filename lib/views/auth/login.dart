@@ -19,9 +19,7 @@ class LoginPage extends StatelessWidget {
                     height: 20.0,
                     child: IconButton(
                       icon: Icon(Icons.arrow_back_ios),
-                      onPressed: () => {
-                        Navigator.pop(context),
-                      },
+                      onPressed: () => Navigator.pop(context),
                     ),
                   ),
                   Container(
@@ -100,10 +98,8 @@ class LoginPage extends StatelessWidget {
                         backgroundColor: Theme.of(context).primaryColor,
                         splashColor: Theme.of(context).accentColor,
                         elevation: 3.0,
-                        onPressed: () => {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (_) => HomeScreen())),
-                        },
+                        onPressed: () => Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => HomeScreen())),
                       ),
                     ],
                   ),
