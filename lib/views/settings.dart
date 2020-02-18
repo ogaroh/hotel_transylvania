@@ -14,7 +14,7 @@ class SettingsPage extends StatelessWidget {
         child: Center(
           child: RaisedButton(
             textColor: Colors.white,
-            child: Text('Sgn Out'),
+            child: Text('Sign Out'),
             color: Theme.of(context).primaryColor,
             onPressed: () => Navigator.push(
               context,

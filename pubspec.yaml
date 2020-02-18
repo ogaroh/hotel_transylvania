@@ -1,5 +1,5 @@
 name: erik
-description: A new Flutter project.
+description: A hotel booking and fun experience application.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -27,6 +27,9 @@ dependencies:
   
   # Fonts 
   google_fonts: ^0.3.5
+
+  # HTTP
+  http: ^0.12.0+4
 
 dev_dependencies:
   flutter_test:
