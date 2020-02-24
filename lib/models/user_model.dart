@@ -1,9 +1,7 @@
 class User {
-  String uid;
-  String email;
   String userName;
+  String email;
   String password;
-  String imageURL;
 
-  User({this.uid, this.email, this.userName, this.imageURL});
+  User({this.userName, this.email, this.password});
 }

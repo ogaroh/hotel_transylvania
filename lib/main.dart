@@ -1,4 +1,4 @@
-import 'package:erik/views/auth/default.dart';
+import 'package:erik/views/auth/login.dart';
 import 'package:erik/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:erik/theme/colors.dart' as theme;
@@ -13,13 +13,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int _selectedIndex = 0;
-  final List<Widget> _pages = [HomeScreen(), DefaultAuth()];
+  int _selectedIndex = 1;
+  final List<Widget> _pages = [HomeScreen(), LoginPage()];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Erik Travel',
+      title: 'FireFly',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: theme.primaryColor,

@@ -1,3 +1,4 @@
+import 'package:erik/views/auth/register.dart';
 import 'package:flutter/material.dart';
 
 import '../home_screen.dart';
@@ -9,6 +10,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+  TextStyle linkStyle = TextStyle(
+      fontFamily: 'Montserrat', fontSize: 15.0, color: Colors.teal[600]);
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +49,19 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+    final goToRegister = GestureDetector(
+      onTap: () => Navigator.push(
+          context, MaterialPageRoute(builder: (_) => RegisterPage())),
+      child: Text(
+        'Create your account.',
+        style: linkStyle,
+      ),
+    );
+
     return Scaffold(
       body: Center(
         child: Container(
-          color: Colors.white,
+          color: Theme.of(context).scaffoldBackgroundColor,
           child: Padding(
             padding: const EdgeInsets.all(36.0),
             child: Column(
@@ -86,6 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 15.0,
                 ),
+                goToRegister,
               ],
             ),
           ),
