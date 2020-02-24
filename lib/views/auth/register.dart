@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../home_screen.dart';
-import 'login.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -59,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
     final goToLogin = GestureDetector(
       onTap: () => Navigator.push(
-          context, MaterialPageRoute(builder: (_) => LoginPage())),
+          context, MaterialPageRoute(builder: (_) => RegisterPage())),
       child: Text(
         'Already have an account? Sign in.',
         style: linkStyle,

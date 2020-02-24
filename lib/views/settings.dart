@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'auth/login.dart';
+import '../models/http_response.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
+  @override
+  _SettingsPageState createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  SharedPreferences localStorage;
+
+  @override
+  void initState() {
+    super.initState();
+    checkLoginStatus();
+  }
+
+  checkLoginStatus() async {
+    localStorage = await SharedPreferences.getInstance();
+    if (localStorage.getString("token") == null) {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +35,16 @@ class SettingsPage extends StatelessWidget {
             textColor: Colors.white,
             child: Text('Sign Out'),
             color: Theme.of(context).primaryColor,
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => LoginPage(),
-              ),
-            ),
+            onPressed: () {
+              localStorage.clear();
+              print(localStorage.getString("token"));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => LoginPage(),
+                ),
+              );
+            },
           ),
         ),
       ),
