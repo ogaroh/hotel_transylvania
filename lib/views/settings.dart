@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'auth/login.dart';
-import '../models/http_response.dart';
+// import '../models/http_response.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
