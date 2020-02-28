@@ -4,6 +4,7 @@ import 'package:erik/env/development.dart';
 import 'package:erik/views/auth/register.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:erik/theme/colors.dart' as theme;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../home_screen.dart';
 
@@ -14,37 +15,53 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isLoading = false;
+  String _message = '';
 
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+  TextStyle errorStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 12.0,
+    color: theme.heading,
+    fontWeight: FontWeight.w600,
+  );
   TextStyle linkStyle = TextStyle(
-      fontFamily: 'Montserrat', fontSize: 15.0, color: Colors.teal[600]);
+      fontFamily: 'Montserrat', fontSize: 15.0, color: Colors.teal[900]);
 
   @override
   Widget build(BuildContext context) {
-    String message = '';
     // sign in to the app through the API
     signIn(String email, String password) async {
-      Map userInfo = {
-        "email": email,
-        "password": password,
-      };
       SharedPreferences localStorage = await SharedPreferences.getInstance();
-      var res = await http.post('${Environment.apiURL}/account/sign-in',
-          body: json.encode(userInfo));
+      var userInfo = json.encode({"email": email, "password": password});
+      var res = await http.post(
+        '${Environment.apiURL}/account/sign-in',
+        headers: {"Content-Type": "application/json"},
+        body: userInfo,
+      );
 
       var jsonData = json.decode(res.body);
       var response = Response(jsonData);
       print("Status: ${response.status}, Message: ${response.message}");
+
       if (response.status == 200) {
+        print("TOKEN: ${response.message}");
         setState(() {
           _isLoading = false;
           localStorage.setString("token", response.message);
+          _message = 'Login Successful.';
         });
-        Navigator.push(
-            context, MaterialPageRoute(builder: (_) => HomeScreen()));
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (_) => HomeScreen(),
+          ),
+          (route) => false
+        );
       } else {
         setState(() {
           _isLoading = false;
+          String msg = response.message;
+          _message = '${msg[0].toUpperCase()}${msg.substring(1)}.';
         });
       }
     }
@@ -103,13 +120,9 @@ class _LoginPageState extends State<LoginPage> {
         style: linkStyle,
       ),
     );
-    final errorMessage = GestureDetector(
-      onTap: () => Navigator.push(
-          context, MaterialPageRoute(builder: (_) => RegisterPage())),
-      child: Text(
-        '$message',
-        style: linkStyle,
-      ),
+    final errorMessage = Text(
+      '$_message',
+      style: errorStyle,
     );
 
     return Scaffold(
@@ -158,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       errorMessage,
                       SizedBox(
-                        height: 35.0,
+                        height: 25.0,
                       ),
                       goToRegister,
                     ],
@@ -168,12 +181,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
-
-class User {
-  final String email, password;
-  const User(this.email, this.password);
-
-  Map<String, dynamic> toJson() =>
-      {"email": this.email, "password": this.password};
 }
