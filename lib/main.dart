@@ -5,24 +5,13 @@ import 'package:erik/theme/colors.dart' as theme;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  SharedPreferences.setMockInitialValues({});
-  runApp(MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  // This widget is the root of your application.
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  int _selectedIndex = 1;
-  final List<Widget> _pages = [HomeScreen(), LoginPage()];
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  var token = preferences.getString('token');
+  print(token);
+  runApp(
+    MaterialApp(
       title: 'FireFly',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -31,10 +20,10 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: theme.backgroundColor,
         scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
         textTheme: GoogleFonts.varelaRoundTextTheme(
-          Theme.of(context).textTheme,
         ),
       ),
-      home: _pages[_selectedIndex],
-    );
-  }
+      home: token == null ? LoginPage() : HomeScreen(),
+    )
+  );
 }
+
