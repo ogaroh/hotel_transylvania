@@ -1,3 +1,3 @@
 class Environment {
-  static final String apiURL = "https://872e31b9.ngrok.io/api/v1";
+  static final String apiURL = "http://d65d1dba.ngrok.io/api/v1";
 }
